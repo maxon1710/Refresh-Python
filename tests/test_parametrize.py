@@ -66,9 +66,6 @@ import pytest
 #     assert get_transfer_fee(amount) == expected_fee
 
 
-
-
-
 def get_soldiers_rank(kills: int):
     if kills == 0:
         return "Новобранец"
@@ -87,9 +84,10 @@ def get_soldiers_rank(kills: int):
         (10, "Главный убийца"),
         (100, "Главный убийца")
     ],
-    ids=
-    ["recruit_0", "novice_1", "novice_9", "boss_edge_10", "boss_100"]
+    ids = ["recruit_0", "novice_1", "novice_9", "boss_edge_10", "boss_100"]
 )
+
+@pytest.mark.smoke
 def test_kills_rank(kill, expected_rank):
     assert get_soldiers_rank(kill) == expected_rank
 
