@@ -69,14 +69,14 @@ if __name__ == "__main__":
 
     print(f"Минимальный тайминг: {min_time}")
 
-# Вариант 2: через встроенный min()
+    # Вариант 2: через встроенный min()
     print(f"Минимум через min(): {min(all_times)}")
 
-# Вариант 3: фильтрация через List Comprehension (все замеры быстрее 100 мс)
+    # Вариант 3: фильтрация через List Comprehension (все замеры быстрее 100 мс)
     fast_times = [t for t in all_times if t < 100]
     print(f"Замеры быстрее 100мс: {fast_times}")
 
-# Карточка 2.1.3: Прерывание цикла через break
+    # Карточка 2.1.3: Прерывание цикла через break
     numbers_break = list(range(1, 8))
     for n in numbers_break:
         print(f"Число до брейка: {n}")
@@ -86,8 +86,7 @@ if __name__ == "__main__":
 print()
 
 
-order_statuses = ["PENDING", "PENDING", "PROCESSING",
-                  "SUCCESS", "FAILED", "TIMEOUT"]
+order_statuses = ["PENDING", "PENDING", "PROCESSING", "SUCCESS", "FAILED", "TIMEOUT"]
 
 for status in order_statuses:
     print(f"Проверяем заказ: {status}")
@@ -143,11 +142,9 @@ for step in range(1, TOTAL_STEPS + 1):
     current_load = random.randint(MIN_LOAD, MAX_LOAD)
     load_rostics.append(current_load)
     if current_load >= ALERT:
-        print(f"шаг {step}: Нагрузка {current_load}% "
-              f"ПРЕВЫСИЛА порог {ALERT}")
+        print(f"шаг {step}: Нагрузка {current_load}% " f"ПРЕВЫСИЛА порог {ALERT}")
     else:
-        print(f"Шаг {step}: Нагрузка {current_load}% "
-              f"не превысила порог {ALERT}")
+        print(f"Шаг {step}: Нагрузка {current_load}% " f"не превысила порог {ALERT}")
     time.sleep(PAUSE_STEPS)
 
 print(load_rostics)
@@ -184,9 +181,9 @@ class TestUser:
         self.is_active = is_active
 
     def summary(self):
-        return (f"User: {self.email}, "
-                f"Role: {self.role}, "
-                f"Active: {self.is_active}")
+        return (
+            f"User: {self.email}, " f"Role: {self.role}, " f"Active: {self.is_active}"
+        )
 
 
 u1 = TestUser("266@mail.ru", "test1", True)
