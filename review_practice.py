@@ -245,7 +245,6 @@
 # print(f"Стамина игрока {player.name} после забега: {player.stamina}")
 
 
-
 #  Короткий цикл for + match-case по списку roles = ["admin", "editor", "guest", "hacker"]
 
 
@@ -265,39 +264,40 @@ for role in roles:
             print(f"Неизвестная роль и уровень роли {role}")
 
 
+cargoes = [("fragile", 15), ("fragile", 60), ("chiral", 100), ("metal", 40)]
+
+for cargo, weight in cargoes:
+    match cargo:
+        case "fragile":
+            if weight > 50:
+                print("Хрупкий перегруз!")
+            else:
+                print("Хрупкий груз в норме")
+        case "chiral":
+            print("Хиральный кристалл: особо ценный")
+        case _:
+            print("Обычный материал")
 
 
+operations = [
+    ("payment", 5000),
+    ("payment", 700000),
+    ("crypto", 100000),
+    ("transfer", 15000),
+    ("bonus", 500),
+]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+for operation, summa in operations:
+    match operation:
+        case "payment":
+            if summa < 600000:
+                print("Обычный платеж")
+            else:
+                print("AML Контроль 115-ФЗ: крупный платеж")
+        case "crypto":
+            print("Операция с криптой: повышенный риск")
+        case "transfer":
+            print("Внутрибанковский перевод")
+        case _:
+            print("Неизвестная операция")
