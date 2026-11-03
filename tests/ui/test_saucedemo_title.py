@@ -1,0 +1,8 @@
+import pytest
+from playwright.sync_api import Page, expect
+
+
+@pytest.mark.ui
+def test_saucedemo_title(page: Page):
+    page.goto("https://www.saucedemo.com")
+    expect(page).to_have_title("Swag Labs")

@@ -2,3 +2,6 @@ pytest
 black
 isort
 flake8
+pytest-playwright
+python-dotenv
+playwright
