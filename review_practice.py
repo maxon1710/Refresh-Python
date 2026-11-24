@@ -1,6 +1,3 @@
-# from unittest import case
-#
-#
 # def check_titan_threat(titan_type: str) -> str:
 #     match titan_type:
 #         case "colossal":
@@ -243,61 +240,211 @@
 # print(f"Стамина игрока {player.name}: {player.stamina}")
 # train_jump(player, 5)
 # print(f"Стамина игрока {player.name} после забега: {player.stamina}")
+# from enum import unique
+#
+# from playwright.sync_api import expect
+#
+# from loops_practice import results
+from http.client import responses
 
+from loops_practice import results
 
 #  Короткий цикл for + match-case по списку roles = ["admin", "editor", "guest", "hacker"]
 
 
-roles = [("admin", 10), ("editor", 6), ("quest", 1), ("hacker", 4), ("autor", 999)]
+# roles = [("admin", 10), ("editor", 6), ("quest", 1), ("hacker", 4), ("autor", 999)]
+#
+# for role in roles:
+#     match role:
+#         case ("admin", level) if level > 9:
+#             print(f"Уровень роли админа: {level}")
+#         case ("editor", level) if level > 5:
+#             print(f"Уровень роли редактора: {level}")
+#         case ("hacker", level) if level > 3:
+#             print(f"Уровень роли хакера: {level}")
+#         case ("quest", level) if level == 1:
+#             print(f"Уровень роли гость: {level}")
+#         case _:
+#             print(f"Неизвестная роль и уровень роли {role}")
+#
+#
+# cargoes = [("fragile", 15), ("fragile", 60), ("chiral", 100), ("metal", 40)]
+#
+# for cargo, weight in cargoes:
+#     match cargo:
+#         case "fragile":
+#             if weight > 50:
+#                 print("Хрупкий перегруз!")
+#             else:
+#                 print("Хрупкий груз в норме")
+#         case "chiral":
+#             print("Хиральный кристалл: особо ценный")
+#         case _:
+#             print("Обычный материал")
+#
+#
+# operations = [
+#     ("payment", 5000),
+#     ("payment", 700000),
+#     ("crypto", 100000),
+#     ("transfer", 15000),
+#     ("bonus", 500),
+# ]
+#
+#
+# for operation, summa in operations:
+#     match operation:
+#         case "payment":
+#             if summa < 600000:
+#                 print("Обычный платеж")
+#             else:
+#                 print("AML Контроль 115-ФЗ: крупный платеж")
+#         case "crypto":
+#             print("Операция с криптой: повышенный риск")
+#         case "transfer":
+#             print("Внутрибанковский перевод")
+#         case _:
+#             print("Неизвестная операция")
 
-for role in roles:
-    match role:
-        case ("admin", level) if level > 9:
-            print(f"Уровень роли админа: {level}")
-        case ("editor", level) if level > 5:
-            print(f"Уровень роли редактора: {level}")
-        case ("hacker", level) if level > 3:
-            print(f"Уровень роли хакера: {level}")
-        case ("quest", level) if level == 1:
-            print(f"Уровень роли гость: {level}")
-        case _:
-            print(f"Неизвестная роль и уровень роли {role}")
+
+#
+# services = [
+#     ("auth", 120),
+#     ("auth", 850),
+#     ("chat", 90),
+#     ("scoring", 300),
+# ]
+#
+# for service, time_ms in services:
+#     match service:
+#         case "auth":
+#             if time_ms < 500:
+#                 print("Авторизация в норме")
+#             else:
+#                 print("Тормозит вход в банк!")
+#         case "chat":
+#             print("Чат WB работает")
+#         case _:
+#             print("Неизвестный сервис")
 
 
-cargoes = [("fragile", 15), ("fragile", 60), ("chiral", 100), ("metal", 40)]
-
-for cargo, weight in cargoes:
-    match cargo:
-        case "fragile":
-            if weight > 50:
-                print("Хрупкий перегруз!")
-            else:
-                print("Хрупкий груз в норме")
-        case "chiral":
-            print("Хиральный кристалл: особо ценный")
-        case _:
-            print("Обычный материал")
+# -----------------------------------------------------------------------------
 
 
-operations = [
-    ("payment", 5000),
-    ("payment", 700000),
-    ("crypto", 100000),
-    ("transfer", 15000),
-    ("bonus", 500),
-]
+#  TODO 🆕 Что нового сегодня: Множество (set)
+
+# Было 4 попытки входа, но IP 192.168.1.1 повторился:
+# ip_addresses = ["192.168.1.1", "10.0.0.1", "192.168.1.1", "172.16.0.1"]
+#
+# unique_ips = set(ip_addresses)  # превратили список во множество
+#
+# print(len(ip_addresses))   # Выведет: 4 (исходная длина)
+# print(len(unique_ips))     # Выведет: 3 (дубликат выкинут!)
+#
+# # Если длины НЕ равны — значит, 100% был дубликат!
+# has_duplicate = len(ip_addresses) != len(unique_ips)
+# print(has_duplicate)      # Выведет: True
+
+#  --------------------------------------------------------------------------
+
+#  🧩 Задачка №1 (LeetCode #217)
+
+# Преврати cards_batch_1 в set и сравни его длину с длиной исходного списка.
+# Выведи результат проверки (должно вывести True, так как карта 101 повторилась).
+# Сделай то же самое для cards_batch_2 (должно вывести False,
+# так как все карты уникальные).
+
+# Тестовые данные (номера карт в банке):
+# cards_batch_1 = [101, 102, 103, 101]
+# cards_batch_2 = [201, 202, 203, 204]
+#
+# unique_card_codes_1 = set(cards_batch_1)
+# unique_card_codes_2 = set(cards_batch_2)
+#
+# print(len(cards_batch_1))
+# print(len(unique_card_codes_1))
+#
+# has_duplicate_1 = len(cards_batch_1) != len(unique_card_codes_1)
+# print(has_duplicate_1)
+#
+# has_duplicate_2 = len(cards_batch_2) != len(unique_card_codes_2)
+# print(has_duplicate_2)
 
 
-for operation, summa in operations:
-    match operation:
-        case "payment":
-            if summa < 600000:
-                print("Обычный платеж")
-            else:
-                print("AML Контроль 115-ФЗ: крупный платеж")
-        case "crypto":
-            print("Операция с криптой: повышенный риск")
-        case "transfer":
-            print("Внутрибанковский перевод")
-        case _:
-            print("Неизвестная операция")
+# Для logins: выведи f"Есть дубликат логина: {...}" (должно быть True).
+# 1. Проверка на дубликаты логинов:
+
+# logins = ["admin", "tester", "guest", "admin"]
+#
+# unique_logins = set(logins)
+# print(f"Кол-во всех логинов: {len(logins)}")
+# print(f"Кол-во уникальных логинов: {len(unique_logins)}")
+#
+# has_duplicate = len(unique_logins) != len(logins)
+# print(f"Есть дубликат логина: {has_duplicate}")
+#
+#
+#
+# #  Для bug_tags: выведи f"Количество уникальных тегов: {...}" (должно быть 3).
+# # 2. Подсчёт уникальных категорий бага:
+# bug_tags = ["ui", "critical", "ui", "regress", "critical"]
+#
+# unique_bug_tags = set(bug_tags)
+# print(f"Количество уникальных тегов: {len(unique_bug_tags)}")
+
+
+# accounts = ["408028101", "408028102", "408028103", "408028101"]
+#
+# has_duplicate = len(set(accounts)) != len(accounts)
+# print(has_duplicate)
+
+
+# s = ["h", "e", "l", "l", "o"]
+# s.reverse()
+# print(s)
+
+
+# n = 15
+# result = []
+#
+# for i in range(1, n+1):
+#     if i % 3 == 0 and i % 5 == 0:
+#         result.append("fizzbuzz")
+#     elif i % 3 == 0:
+#         result.append("fizz")
+#     elif i % 5 == 0:
+#         result.append("buzz")
+#     else:
+#         result.append(str(i))
+# print(result)
+
+
+# text = "   Перевод   денежных   средств   Иванову   "
+#
+# len_text = text.split()
+# print(len(len_text[-1]))
+
+
+# raw_log = "   TX-15   TX-9   TX-10   TX-15   TX-3   "
+#
+# raw_log = raw_log.split()
+# print(raw_log)
+#
+# if len(set(raw_log)) != len(raw_log):
+#     raw_log.reverse()
+#
+# result = []
+#
+# for line in raw_log:
+#     num = int(line.split("-")[-1])
+#
+#     if num % 3 == 0 and num % 5 == 0:
+#         result.append("VIP_TX")
+#     elif num % 3 == 0:
+#         result.append("FAST_TX")
+#     else:
+#         result.append(line)
+# print(result)
+
+
+s = "A man, a plan, a canal: Panama"
